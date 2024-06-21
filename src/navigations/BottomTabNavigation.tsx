@@ -14,7 +14,7 @@ const BottomTabNavigator = (): JSX.Element => (
       component={Home}
       options={{
         tabBarIcon: ({ color }) => (
-          <Feather name="home" size={28} color={color} />
+          <Feather name="home" size={24} color={color} />
         ),
         headerShown: false,
       }}
@@ -24,7 +24,7 @@ const BottomTabNavigator = (): JSX.Element => (
       component={Search}
       options={{
         tabBarIcon: ({ color }) => (
-          <Feather name="search" size={28} color={color} />
+          <Feather name="search" size={24} color={color} />
         ),
         headerShown: false,
       }}
@@ -34,7 +34,7 @@ const BottomTabNavigator = (): JSX.Element => (
       component={Favorite}
       options={{
         tabBarIcon: ({ color }) => (
-          <Feather name="heart" size={28} color={color} />
+          <Feather name="heart" size={24} color={color} />
         ),
         headerShown: false,
       }}
