@@ -1,11 +1,27 @@
+import { StyleSheet, Text, View, Button } from "react-native";
 import React from "react";
-import { Text } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function Home(): JSX.Element {
+const Home = ({ navigation }: any): JSX.Element => {
   return (
-    <SafeAreaView>
-      <Text>Home</Text>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <Text style={styles.marginBottom20}>Movie Page</Text>
+      <Button
+        title="Pergi Ke MovieDetail"
+        onPress={() => navigation.navigate("MovieDetail")}
+      />
+    </View>
   );
-}
+};
+
+export default Home;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  marginBottom20: {
+    marginBottom: 20,
+  },
+});
