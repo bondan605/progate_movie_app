@@ -6,9 +6,9 @@ import MovieDetail from "../screens/MovieDetail";
 const Stack = createNativeStackNavigator();
 
 const HomeStackNavigation = (): JSX.Element => (
-  <Stack.Navigator initialRouteName="Home">
+  <Stack.Navigator initialRouteName="MoviePage">
     <Stack.Screen
-      name="Home"
+      name="MoviePage"
       component={Home}
       options={{ headerShown: false }}
     />
