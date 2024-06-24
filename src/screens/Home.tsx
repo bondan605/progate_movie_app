@@ -48,6 +48,7 @@ export default Home;
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: StatusBar.currentHeight ?? 32,
     alignItems: "center",
     justifyContent: "center",
     rowGap: 16,
