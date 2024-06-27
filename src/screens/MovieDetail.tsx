@@ -203,7 +203,6 @@ const MovieDetail = ({ route }: any): JSX.Element => {
               movie={item}
               size={{ width: 100, height: 160 }}
               coverType="poster"
-              onPress={() => item.id}
             />
           )}
           keyExtractor={(item) => item.id.toString()}

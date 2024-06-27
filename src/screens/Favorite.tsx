@@ -1,27 +1,15 @@
-import React, { useEffect, useState, useCallback } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  FlatList,
-  Dimensions,
-  TouchableOpacity,
-} from "react-native";
+import React, { useState, useCallback } from "react";
+import { View, Text, StyleSheet, FlatList, Dimensions } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import MovieItem from "../components/movies/MovieItem";
 import { Movie } from "../types/app";
-import {
-  useFocusEffect,
-  useNavigation,
-  StackActions,
-} from "@react-navigation/native";
+import { useFocusEffect } from "@react-navigation/native";
 
 const { width } = Dimensions.get("window");
 const ITEM_WIDTH = width / 3 - 16;
 
 const Favorite = (): JSX.Element => {
   const [favoriteMovies, setFavoriteMovies] = useState<Movie[]>([]);
-  const navigation = useNavigation();
 
   const fetchFavoriteMovies = async (): Promise<void> => {
     try {
@@ -50,32 +38,19 @@ const Favorite = (): JSX.Element => {
     );
   }
 
-  const handlePress = (id: number) => {
-    console.log("Navigating to MovieDetail with ID:", id);
-    navigation.dispatch(StackActions.push("MovieDetail", { id }));
-  };
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Favorite Movies</Text>
       <FlatList
         data={favoriteMovies}
         renderItem={({ item }) => (
-          <TouchableOpacity
-            style={styles.itemContainer}
-            // onPress={() => handlePress(item.id)}
-          >
+          <View style={styles.itemContainer}>
             <MovieItem
               movie={item}
               size={{ width: ITEM_WIDTH, height: 160 }}
               coverType="poster"
-              onPress={() => {
-                navigation.dispatch(
-                  StackActions.push("MovieDetail", { id: item.id })
-                );
-              }}
             />
-          </TouchableOpacity>
+          </View>
         )}
         keyExtractor={(item) => `${item.id}`}
         numColumns={3}
