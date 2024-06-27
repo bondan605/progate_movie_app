@@ -45,3 +45,12 @@ export interface MovieItemProps {
   size: { width: number; height: number }
   coverType: 'poster' | 'backdrop'
 }
+
+export interface Genre {
+  genres: GenreElement[];
+}
+
+export interface GenreElement {
+  id: number;
+  name: string;
+}
